@@ -1,29 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SQLContainer>
-    <SQLComment>
-        <name><![CDATA[threads [comment]]]></name>
-        <comment><![CDATA[Sticky, locked, etc.]]></comment>
-        <location>
-            <x>298.000000</x>
-            <y>298.000000</y>
-        </location>
-        <size>
-            <width>193.000000</width>
-            <height>42.000000</height>
-        </size>
-        <uid><![CDATA[D536E334-B96D-4F0B-BD4B-CF28E06B7B75]]></uid>
-        <zorder><![CDATA[10]]></zorder>
-        <temporaryOriginalName><![CDATA[Threads - Comments]]></temporaryOriginalName>
-    </SQLComment>
     <SQLTable>
         <name><![CDATA[sessions]]></name>
         <schema><![CDATA[]]></schema>
         <location>
-            <x>610.000000</x>
-            <y>356.000000</y>
+            <x>659.000000</x>
+            <y>360.000000</y>
         </location>
         <size>
-            <width>202.000000</width>
+            <width>249.000000</width>
             <height>80.000000</height>
         </size>
         <SQLField>
@@ -51,16 +36,17 @@
         </SQLField>
         <uid><![CDATA[69476A34-0AAE-4C33-B965-F4BFB32BC273]]></uid>
         <zorder><![CDATA[9]]></zorder>
+        <temporaryOriginalName><![CDATA[sessions]]></temporaryOriginalName>
     </SQLTable>
     <SQLTable>
         <name><![CDATA[forums]]></name>
         <schema><![CDATA[]]></schema>
         <location>
-            <x>35.000000</x>
-            <y>31.000000</y>
+            <x>9.000000</x>
+            <y>29.000000</y>
         </location>
         <size>
-            <width>183.000000</width>
+            <width>253.000000</width>
             <height>140.000000</height>
         </size>
         <SQLField>
@@ -114,11 +100,11 @@
         <name><![CDATA[users]]></name>
         <schema><![CDATA[]]></schema>
         <location>
-            <x>596.000000</x>
-            <y>27.000000</y>
+            <x>636.000000</x>
+            <y>25.000000</y>
         </location>
         <size>
-            <width>223.000000</width>
+            <width>292.000000</width>
             <height>300.000000</height>
         </size>
         <SQLField>
@@ -227,12 +213,12 @@
         <name><![CDATA[threads]]></name>
         <schema><![CDATA[]]></schema>
         <location>
-            <x>305.000000</x>
-            <y>178.000000</y>
+            <x>329.000000</x>
+            <y>182.000000</y>
         </location>
         <size>
-            <width>183.000000</width>
-            <height>100.000000</height>
+            <width>219.000000</width>
+            <height>140.000000</height>
         </size>
         <SQLField>
             <name><![CDATA[id]]></name>
@@ -280,6 +266,20 @@
             <uid><![CDATA[C87E6C8C-B3E0-4A72-BB9B-1849EF83D701]]></uid>
             <forcedUnique><![CDATA[0]]></forcedUnique>
         </SQLField>
+        <SQLField>
+            <name><![CDATA[sticky]]></name>
+            <type><![CDATA[BOOLEAN]]></type>
+            <notNull>1</notNull>
+            <defaultValue><![CDATA[0]]></defaultValue>
+            <uid><![CDATA[3A37293F-129A-44E6-A7B9-306B01F4FA8A]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[locked]]></name>
+            <type><![CDATA[BOOLEAN]]></type>
+            <notNull>1</notNull>
+            <defaultValue><![CDATA[0]]></defaultValue>
+            <uid><![CDATA[30192318-D9EE-4FA1-9A62-4FD81B7B41D8]]></uid>
+        </SQLField>
         <uid><![CDATA[715BC182-FE91-4383-B31E-80E240D721B2]]></uid>
         <zorder><![CDATA[6]]></zorder>
     </SQLTable>
@@ -287,11 +287,11 @@
         <name><![CDATA[posts]]></name>
         <schema><![CDATA[]]></schema>
         <location>
-            <x>302.000000</x>
-            <y>17.000000</y>
+            <x>319.000000</x>
+            <y>13.000000</y>
         </location>
         <size>
-            <width>185.000000</width>
+            <width>245.000000</width>
             <height>140.000000</height>
         </size>
         <SQLField>
@@ -361,7 +361,7 @@
             <y>369.000000</y>
         </location>
         <size>
-            <width>183.000000</width>
+            <width>202.000000</width>
             <height>60.000000</height>
         </size>
         <SQLField>
@@ -388,11 +388,11 @@
         <name><![CDATA[forum_permissions]]></name>
         <schema><![CDATA[]]></schema>
         <location>
-            <x>42.000000</x>
-            <y>252.000000</y>
+            <x>15.000000</x>
+            <y>243.000000</y>
         </location>
         <size>
-            <width>190.000000</width>
+            <width>223.000000</width>
             <height>160.000000</height>
         </size>
         <SQLField>
@@ -611,17 +611,17 @@ hpKEnJyEhAx7X05TU2l6ZT1mZn2hgVMCgUoDhoaG
         <autoSizeTablesOption><![CDATA[0]]></autoSizeTablesOption>
         <fileversion><![CDATA[3.1]]></fileversion>
         <windowLocationX><![CDATA[18.000000]]></windowLocationX>
-        <windowLocationY><![CDATA[243.000000]]></windowLocationY>
+        <windowLocationY><![CDATA[232.000000]]></windowLocationY>
         <pageBoundariesVisible><![CDATA[0]]></pageBoundariesVisible>
         <PageGridVisible><![CDATA[0]]></PageGridVisible>
         <windowHeight><![CDATA[746.000000]]></windowHeight>
-        <SourceSplitViewState><![CDATA[2 -240 914]]></SourceSplitViewState>
+        <SourceSplitViewState><![CDATA[2 -261.269 995]]></SourceSplitViewState>
         <uid><![CDATA[6D4A63E0-E393-47D2-804C-7DE986946D54]]></uid>
         <documentScaleFactor><![CDATA[1]]></documentScaleFactor>
         <snapToGrid><![CDATA[0]]></snapToGrid>
         <hideFieldIcons><![CDATA[0]]></hideFieldIcons>
         <exportDialect><![CDATA[Rails]]></exportDialect>
-        <windowWidth><![CDATA[923.000000]]></windowWidth>
+        <windowWidth><![CDATA[1004.000000]]></windowWidth>
     </SQLDocumentInfo>
     <AllowsIndexRenamingOnInsert><![CDATA[1]]></AllowsIndexRenamingOnInsert>
     <containerName><![CDATA[model controller orginal container]]></containerName>
