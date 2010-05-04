@@ -1,11 +1,11 @@
 class CreateThreads < ActiveRecord::Migration
   def self.up
     create_table :threads do |t|
-      t.string :title
-      t.integer :forum_id
-      t.integer :user_id
-      t.boolean :sticky
-      t.boolean :locked
+      t.string :title, :null => false
+      t.integer :forum_id, :null => false
+      t.integer :user_id, :null => false
+      t.boolean :sticky, :default => 0, :null => false
+      t.boolean :locked, :default => 0, :null => false
       t.timestamps
     end
   end

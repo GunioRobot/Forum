@@ -1,7 +1,7 @@
 class CreateForums < ActiveRecord::Migration
   def self.up
     create_table :forums do |t|
-      t.string :title
+      t.string :title, :null => false
       t.string :description
       t.integer :parent_id
       t.integer :lft
