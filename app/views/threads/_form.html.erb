@@ -1,0 +1,24 @@
+<% form_for @thread do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :forum_id %><br />
+    <%= f.text_field :forum_id %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :sticky %><br />
+    <%= f.check_box :sticky %>
+  </p>
+  <p>
+    <%= f.label :locked %><br />
+    <%= f.check_box :locked %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

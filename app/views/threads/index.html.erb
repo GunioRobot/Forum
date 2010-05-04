@@ -1,0 +1,25 @@
+<% title "Threads" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Forum</th>
+    <th>User</th>
+    <th>Sticky</th>
+    <th>Locked</th>
+  </tr>
+  <% for thread in @threads %>
+    <tr>
+      <td><%=h thread.title %></td>
+      <td><%=h thread.forum_id %></td>
+      <td><%=h thread.user_id %></td>
+      <td><%=h thread.sticky %></td>
+      <td><%=h thread.locked %></td>
+      <td><%= link_to "Show", thread %></td>
+      <td><%= link_to "Edit", edit_thread_path(thread) %></td>
+      <td><%= link_to "Destroy", thread, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Thread", new_thread_path %></p>

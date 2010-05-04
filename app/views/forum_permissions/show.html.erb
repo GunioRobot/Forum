@@ -1,0 +1,32 @@
+<% title "Forum Permission" %>
+
+<p>
+  <strong>Forum:</strong>
+  <%=h @forum_permission.forum_id %>
+</p>
+<p>
+  <strong>Role:</strong>
+  <%=h @forum_permission.role_id %>
+</p>
+<p>
+  <strong>Read:</strong>
+  <%=h @forum_permission.read %>
+</p>
+<p>
+  <strong>Write:</strong>
+  <%=h @forum_permission.write %>
+</p>
+<p>
+  <strong>Moderate:</strong>
+  <%=h @forum_permission.moderate %>
+</p>
+<p>
+  <strong>Admin:</strong>
+  <%=h @forum_permission.admin %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_forum_permission_path(@forum_permission) %> |
+  <%= link_to "Destroy", @forum_permission, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", forum_permissions_path %>
+</p>

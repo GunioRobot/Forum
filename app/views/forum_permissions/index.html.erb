@@ -1,0 +1,27 @@
+<% title "Forum Permissions" %>
+
+<table>
+  <tr>
+    <th>Forum</th>
+    <th>Role</th>
+    <th>Read</th>
+    <th>Write</th>
+    <th>Moderate</th>
+    <th>Admin</th>
+  </tr>
+  <% for forum_permission in @forum_permissions %>
+    <tr>
+      <td><%=h forum_permission.forum_id %></td>
+      <td><%=h forum_permission.role_id %></td>
+      <td><%=h forum_permission.read %></td>
+      <td><%=h forum_permission.write %></td>
+      <td><%=h forum_permission.moderate %></td>
+      <td><%=h forum_permission.admin %></td>
+      <td><%= link_to "Show", forum_permission %></td>
+      <td><%= link_to "Edit", edit_forum_permission_path(forum_permission) %></td>
+      <td><%= link_to "Destroy", forum_permission, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Forum Permission", new_forum_permission_path %></p>

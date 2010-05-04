@@ -1,0 +1,28 @@
+<% title "Post" %>
+
+<p>
+  <strong>Title:</strong>
+  <%=h @post.title %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%=h @post.content %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @post.user_id %>
+</p>
+<p>
+  <strong>Thread:</strong>
+  <%=h @post.thread_id %>
+</p>
+<p>
+  <strong>Posted By Ip:</strong>
+  <%=h @post.posted_by_ip %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_post_path(@post) %> |
+  <%= link_to "Destroy", @post, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", posts_path %>
+</p>

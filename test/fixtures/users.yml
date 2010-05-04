@@ -1,0 +1,7 @@
+one:
+  nick: MyString
+  role_id: 1
+
+two:
+  nick: MyString
+  role_id: 1

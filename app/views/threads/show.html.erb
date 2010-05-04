@@ -1,0 +1,28 @@
+<% title "Thread" %>
+
+<p>
+  <strong>Title:</strong>
+  <%=h @thread.title %>
+</p>
+<p>
+  <strong>Forum:</strong>
+  <%=h @thread.forum_id %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%=h @thread.user_id %>
+</p>
+<p>
+  <strong>Sticky:</strong>
+  <%=h @thread.sticky %>
+</p>
+<p>
+  <strong>Locked:</strong>
+  <%=h @thread.locked %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_thread_path(@thread) %> |
+  <%= link_to "Destroy", @thread, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", threads_path %>
+</p>

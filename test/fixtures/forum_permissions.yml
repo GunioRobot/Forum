@@ -1,0 +1,15 @@
+one:
+  forum_id: 1
+  role_id: 1
+  read: false
+  write: false
+  moderate: false
+  admin: false
+
+two:
+  forum_id: 1
+  role_id: 1
+  read: false
+  write: false
+  moderate: false
+  admin: false

@@ -1,0 +1,13 @@
+one:
+  title: MyString
+  content: MyText
+  user_id: 1
+  thread_id: 1
+  posted_by_ip: MyString
+
+two:
+  title: MyString
+  content: MyText
+  user_id: 1
+  thread_id: 1
+  posted_by_ip: MyString
