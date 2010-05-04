@@ -4,4 +4,8 @@ class Thread < ActiveRecord::Base
   has_many :posts
   
   attr_accessible :title, :forum_id, :user_id, :sticky, :locked
+  
+  def user_can(user)
+    true
+  end
 end

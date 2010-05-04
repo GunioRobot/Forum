@@ -1,4 +1,6 @@
 class RolesController < ApplicationController
+  load_and_authorize_resource :nested => :user
+  
   def index
     @roles = Role.all
   end

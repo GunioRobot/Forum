@@ -1,4 +1,6 @@
 class ThreadsController < ApplicationController
+  load_and_authorize_resource :nested => :forum
+  
   def index
     @threads = Thread.all
   end

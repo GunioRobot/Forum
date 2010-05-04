@@ -11,4 +11,8 @@ class Forum < ActiveRecord::Base
   def reassign_parent
     self.move_to_child_of ProductGroup.find(self.new_parent_id)
   end
+  
+  def user_can(user)
+    true
+  end
 end
