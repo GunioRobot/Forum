@@ -4,24 +4,21 @@
   <tr>
     <th>Title</th>
     <th>Description</th>
-    <th>Parent</th>
-    <th>Lft</th>
-    <th>Rgt</th>
-    <th>New Parent</th>
   </tr>
   <% for forum in @forums %>
     <tr>
-      <td><%=h forum.title %></td>
+      <td><%= link_to forum.title, forum %></td>
       <td><%=h forum.description %></td>
-      <td><%=h forum.parent_id %></td>
-      <td><%=h forum.lft %></td>
-      <td><%=h forum.rgt %></td>
-      <td><%=h forum.new_parent_id %></td>
-      <td><%= link_to "Show", forum %></td>
-      <td><%= link_to "Edit", edit_forum_path(forum) %></td>
-      <td><%= link_to "Destroy", forum, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if can? :update, thread %>
+        <td><%= link_to "Edit", edit_forum_path(forum) %></td>
+      <% end %>
+      <% if can? :destroy, thread %>
+        <td><%= link_to "Destroy", forum, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Forum", new_forum_path %></p>
+<% if can? :create, Forum %>
+  <p><%= link_to "New Forum", new_forum_path %></p>
+<% end %>

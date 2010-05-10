@@ -10,16 +10,21 @@
   </tr>
   <% for thread in @threads %>
     <tr>
-      <td><%=h thread.title %></td>
+      <td><%= link_to thread.title, thread %></td>
       <td><%=h thread.forum_id %></td>
       <td><%=h thread.user_id %></td>
       <td><%=h thread.sticky %></td>
       <td><%=h thread.locked %></td>
-      <td><%= link_to "Show", thread %></td>
-      <td><%= link_to "Edit", edit_thread_path(thread) %></td>
-      <td><%= link_to "Destroy", thread, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% if can? :update, thread %>
+        <td><%= link_to "Edit", edit_thread_path(thread) %></td>
+      <% end %>
+      <% if can? :destroy, thread %>
+        <td><%= link_to "Destroy", thread, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
 
-<p><%= link_to "New Thread", new_thread_path %></p>
+<% if can? :create, Thread %>
+  <p><%= link_to "New Thread", new_thread_path %></p>
+<% end %>

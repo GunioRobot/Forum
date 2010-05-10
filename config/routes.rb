@@ -1,11 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :users
+  map.devise_for :users
 
   map.resources :roles
 
   map.resources :forum_permissions
-
-  map.devise_for :users
 
   map.resources :posts
 
