@@ -2,7 +2,7 @@ class ForumsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @forums = Forum.all
+    @forums = Forum.find(:all, :conditions => 'parent_id IS NULL')
   end
   
   def show

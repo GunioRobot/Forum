@@ -1,23 +1,6 @@
 <% title "Forums" %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-  </tr>
-  <% for forum in @forums %>
-    <tr>
-      <td><%= link_to forum.title, forum %></td>
-      <td><%=h forum.description %></td>
-      <% if can? :update, thread %>
-        <td><%= link_to "Edit", edit_forum_path(forum) %></td>
-      <% end %>
-      <% if can? :destroy, thread %>
-        <td><%= link_to "Destroy", forum, :confirm => 'Are you sure?', :method => :delete %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+<%= render :partial => 'forum', :locals => {:forums => @forums} %>
 
 <% if can? :create, Forum %>
   <p><%= link_to "New Forum", new_forum_path %></p>

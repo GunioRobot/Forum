@@ -7,15 +7,9 @@ class Ability
     if user.role?(:admin)
       can :manage, :all
     elsif user.role?(:registered)
-      can :read, Forum do |forum|
-        forum && forum.user_can(user, :read)
-      end
-      can :read, Thread do |thread|
-        thread && thread.user_can(user, :read)
-      end
-      can :read, Post do |post|
-        post && post.user_can(user, :read)
-      end
+      can :read, Forum
+      can :read, Thread
+      can :read, Post
       can :create, Thread
       can :create, Post
       can :update, Post do |post|

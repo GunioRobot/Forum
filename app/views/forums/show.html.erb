@@ -8,25 +8,15 @@
   <strong>Description:</strong>
   <%=h @forum.description %>
 </p>
-<p>
-  <strong>Parent:</strong>
-  <%=h @forum.parent_id %>
-</p>
-<p>
-  <strong>Lft:</strong>
-  <%=h @forum.lft %>
-</p>
-<p>
-  <strong>Rgt:</strong>
-  <%=h @forum.rgt %>
-</p>
-<p>
-  <strong>New Parent:</strong>
-  <%=h @forum.new_parent_id %>
-</p>
+
+<%= render :partial => 'forum', :locals => {:forums => @forum.children} %>
+
+<div id="threads">
+  
+</div>
 
 <p>
-  <%= link_to "Edit", edit_forum_path(@forum) %> |
-  <%= link_to "Destroy", @forum, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Edit", edit_forum_path(@forum) if can? :update, @forum %>
+  <%= link_to "Destroy", @forum, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @forum %>
   <%= link_to "View All", forums_path %>
 </p>

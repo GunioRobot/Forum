@@ -1,0 +1,21 @@
+<table>
+<% for forum in forums %>
+  <tr>
+    <td><%= link_to forum.title, forum %></td>
+    <td><%=h forum.description %></td>
+    <% if can? :update, forum %>
+      <td><%= link_to "Edit", edit_forum_path(forum) %></td>
+    <% end %>
+    <% if can? :destroy, forum %>
+      <td><%= link_to "Destroy", forum, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+  <% if forum.children %>
+  <tr>
+    <td>
+      <%= render :partial => 'forum', :locals => {:forums => forum.children} %>
+    </td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
