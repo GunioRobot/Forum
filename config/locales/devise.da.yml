@@ -1,0 +1,35 @@
+da:
+  devise:
+    sessions:
+      link: 'Log ind'
+      signed_in: 'Du er nu logget ind.'
+      signed_out: 'Du er nu logget ud.'
+      unauthenticated: 'Du skal logge ind før du kan fortsætte.'
+      unconfirmed: 'Du skal bekræfte din konto før du kan fortsætte.'
+      locked: 'Din konto er låst.'
+      invalid: 'Ugyldig email eller password.'
+      invalid_token: 'Ugyldig authentication token.'
+      timeout: 'Din session er udløbet. Log ind igen for at fortsætte.'
+      inactive: 'Din konto er ikke aktiveret endnu.'
+    passwords:
+      link: 'Glemt kodeord?'
+      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
+      updated: 'Your password was changed successfully. You are now signed in.'
+    confirmations:
+      link: "Didn't receive confirmation instructions?"
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      link: 'Sign up'
+      signed_up: 'You have signed up successfully.'
+      updated: 'You updated your account successfully.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    unlocks:
+      link: "Didn't receive unlock instructions?"
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+    mailer:
+      confirmation_instructions: 'Confirmation instructions'
+      reset_password_instructions: 'Reset password instructions'
+      unlock_instructions: 'Unlock Instructions'
+

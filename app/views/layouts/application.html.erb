@@ -14,7 +14,7 @@
           <%= t('devise.sessions.signed_in_as') %> <%= current_user.email %>.
           <%= link_to t('devise.sessions.sign_out'), destroy_user_session_path %>
         <% else %>
-          <%= link_to t('devise.sessions.sign_in'), new_user_session_path %>
+          <%= link_to t('devise.sessions.link'), new_user_session_path %>
         <% end %>
       </div>
       
