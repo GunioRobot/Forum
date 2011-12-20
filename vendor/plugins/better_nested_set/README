@@ -1,7 +1,7 @@
 = Better nested set
 
-This plugin provides an enhanced acts_as_nested_set mixin for ActiveRecord, the 
-object-relational mapping layer of the framework Ruby on Rails. The original 
+This plugin provides an enhanced acts_as_nested_set mixin for ActiveRecord, the
+object-relational mapping layer of the framework Ruby on Rails. The original
 nested set in Rails lacks many important features, such as moving branches within a tree.
 
 = Installation
@@ -11,13 +11,13 @@ nested set in Rails lacks many important features, such as moving branches withi
 == Details
 
 A nested set is a smart way to implement an _ordered_ tree that allows for
-fast, non-recursive queries. For example, you can fetch all descendants of 
-a node in a single query, no matter how deep the tree. The drawback is that 
-insertions/moves/deletes require complex SQL, but that is handled behind 
+fast, non-recursive queries. For example, you can fetch all descendants of
+a node in a single query, no matter how deep the tree. The drawback is that
+insertions/moves/deletes require complex SQL, but that is handled behind
 the curtains by this plugin!
 
-Nested sets are appropriate for ordered trees 
-(e.g. menus, commercial categories) and big trees that must be queried 
+Nested sets are appropriate for ordered trees
+(e.g. menus, commercial categories) and big trees that must be queried
 efficiently (e.g. threaded posts).
 
 See http://www.dbmsmag.com/9603d06.html for nested sets theory, and a tutorial here:
@@ -44,7 +44,7 @@ Could be visualized like this:
    |   |  |  C 1.1  |  |  C 1.2 |  |   |  |  C 2.1  |  |  C 2.2 |  |   |
    1   2  3_________4  5________6  7   8  9_________10 11_______12 13  14
    |   |___________________________|   |___________________________|   |
-   |___________________________________________________________________| 
+   |___________________________________________________________________|
 
 The numbers represent the left and right boundaries.  The table then might
 look like this:
@@ -60,7 +60,7 @@ look like this:
 To get all children of an entry +parent+, you
     SELECT * WHERE lft IS BETWEEN parent.lft AND parent.rgt
 
-To get the number of children, it's 
+To get the number of children, it's
     (right - left - 1)/2
 
 To get a node and all its ancestors going back to the root, you
@@ -70,7 +70,7 @@ As you can see, queries that would be recursive and prohibitively slow on ordina
 
 
 = API
-Method names are mostly the same as in acts_as_tree, to make replacment from one 
+Method names are mostly the same as in acts_as_tree, to make replacment from one
 by another easier, except for object creation:
 
 in acts_as_tree:
@@ -111,16 +111,16 @@ Other instance methods added by this plugin include:
 
 These should not be of interest, unless you want to write schema-independent SQL:
 * <tt>left_col_name</tt> - name of the left column passed on the declaration line
-* <tt>right_col_name</tt> - name of the right column passed on the declaration line    
+* <tt>right_col_name</tt> - name of the right column passed on the declaration line
 * <tt>parent_col_name</tt> - name of the parent column passed on the declaration line
 
 Please see the generated RDoc files in doc/ for the full API (run 'rake rdoc' if they need to be created).
 
 == Concurrency and callbacks
 
-ActiveRecord does not yet provide a way to treat columns as read-only, which causes problems for 
-nested sets and other things (http://dev.rubyonrails.org/ticket/6896). As a workaround, we have overridden 
-ActiveRecord::Base#update to prevent it from writing to the left/right columns. This protects the left/right 
+ActiveRecord does not yet provide a way to treat columns as read-only, which causes problems for
+nested sets and other things (http://dev.rubyonrails.org/ticket/6896). As a workaround, we have overridden
+ActiveRecord::Base#update to prevent it from writing to the left/right columns. This protects the left/right
 values from corruption under concurrent usage, but it breaks the update-related callbacks (before_update and friends).
 If you need the callbacks and aren't worried about concurrency, you can comment out the update method and the two
 methods below it (all at the very bottom of better_nested_set.rb).
@@ -131,11 +131,11 @@ please apply the patch soon.
 
 == Scopes and roots
 
-Scope separates trees from each other, and roots are nodes without a parent. The complication is that a tree can 
+Scope separates trees from each other, and roots are nodes without a parent. The complication is that a tree can
 have multiple ("virtual") roots.
 
 Virtual roots?! In some situations, such as a menu, the root of the tree is ignored, and becomes a nuisance to the programmer.
-In that case it makes sense to remove the root, turning each of its children into a 'virtual root'. These virtual roots 
+In that case it makes sense to remove the root, turning each of its children into a 'virtual root'. These virtual roots
 are still members of the same tree, sharing a single continuous left/right index.
 
 Here's an example that demonstrates scopes, roots and virtual roots:
@@ -151,7 +151,7 @@ Here's an example that demonstrates scopes, roots and virtual roots:
   # New objects are by default created as virtual roots at the right side of the tree.
   c = Set.create(:tree_id => 2)  # c.lft is 3, c.rgt is 4 -- the lft/rgt values are contiguous between the two roots
 
-  # When we move c to be a child of b, tree #2 will have a single (real) root again. 
+  # When we move c to be a child of b, tree #2 will have a single (real) root again.
   c.move_to_child_of(b)
 
   # The table would now look like this:
@@ -159,13 +159,13 @@ Here's an example that demonstrates scopes, roots and virtual roots:
    1 |      NULL |       1 |   1 |   2 | a
    2 |      NULL |       2 |   1 |   4 | b
    3 |         2 |       2 |   2 |   3 | c
-     
+
 == Recommendations
 
 Don't name your left and right columns 'left' and 'right', since most databases reserve these words.
 Use something like 'lft' and 'rgt' instead.
 
-If you have a choice between multiple separate trees or one large tree with multiple roots, separate trees will 
+If you have a choice between multiple separate trees or one large tree with multiple roots, separate trees will
 offer better performance when altering tree structure (inserts/moves/deletes).
 
 = Where to find better_nested_set
@@ -173,7 +173,7 @@ offer better performance when altering tree structure (inserts/moves/deletes).
 This plugin is provided by Jean-Christophe Michel from Symétrie, and the home page is:
 
   http://opensource.symetrie.com/trac/better_nested_set/
-  
+
 = What databases?
 
 The code has so far been tested on MySQL 5, SQLite3 and PostgreSQL 8, but is thought to work on others.
@@ -196,7 +196,7 @@ is intended to be (almost completely) compatible. Differences include:
 
 2) The tests must be run with the plugin installed in a Rails project, so do that if you haven't already.
 
-3) Run 'rake test_mysql' (or test_sqlite3 or test_postgresql) in plugins/betternestedset. The default rake task attempts to use 
+3) Run 'rake test_mysql' (or test_sqlite3 or test_postgresql) in plugins/betternestedset. The default rake task attempts to use
 all three adapters.
 
 = License

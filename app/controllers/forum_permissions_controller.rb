@@ -2,15 +2,15 @@ class ForumPermissionsController < ApplicationController
   def index
     @forum_permissions = ForumPermission.all
   end
-  
+
   def show
     @forum_permission = ForumPermission.find(params[:id])
   end
-  
+
   def new
     @forum_permission = ForumPermission.new
   end
-  
+
   def create
     @forum_permission = ForumPermission.new(params[:forum_permission])
     if @forum_permission.save
@@ -20,11 +20,11 @@ class ForumPermissionsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @forum_permission = ForumPermission.find(params[:id])
   end
-  
+
   def update
     @forum_permission = ForumPermission.find(params[:id])
     if @forum_permission.update_attributes(params[:forum_permission])
@@ -34,7 +34,7 @@ class ForumPermissionsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @forum_permission = ForumPermission.find(params[:id])
     @forum_permission.destroy

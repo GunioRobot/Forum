@@ -7,12 +7,12 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :threads
   belongs_to :role
-  
+
   before_create :set_default_role
-  
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :nick, :email, :password, :password_confirmation
-  
+
   def role?(role)
     if self.role
       self.role.name.to_sym == role
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
       false
     end
   end
-  
+
   def set_default_role
     self.role = Role.find_by_name('registered')
   end

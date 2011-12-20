@@ -1,18 +1,18 @@
 class ThreadsController < ApplicationController
   load_and_authorize_resource :nested => :forum
-  
+
   def index
     @threads = Thread.all
   end
-  
+
   def show
     @thread = Thread.find(params[:id])
   end
-  
+
   def new
     @thread = Thread.new
   end
-  
+
   def create
     @thread = Thread.new(params[:thread])
     if @thread.save
@@ -22,11 +22,11 @@ class ThreadsController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @thread = Thread.find(params[:id])
   end
-  
+
   def update
     @thread = Thread.find(params[:id])
     if @thread.update_attributes(params[:thread])
@@ -36,7 +36,7 @@ class ThreadsController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @thread = Thread.find(params[:id])
     @thread.destroy

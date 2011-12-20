@@ -1,18 +1,18 @@
 class RolesController < ApplicationController
   load_and_authorize_resource :nested => :user
-  
+
   def index
     @roles = Role.all
   end
-  
+
   def show
     @role = Role.find(params[:id])
   end
-  
+
   def new
     @role = Role.new
   end
-  
+
   def create
     @role = Role.new(params[:role])
     if @role.save
@@ -22,11 +22,11 @@ class RolesController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @role = Role.find(params[:id])
   end
-  
+
   def update
     @role = Role.find(params[:id])
     if @role.update_attributes(params[:role])
@@ -36,7 +36,7 @@ class RolesController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @role = Role.find(params[:id])
     @role.destroy

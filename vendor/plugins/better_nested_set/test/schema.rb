@@ -5,7 +5,7 @@ ActiveRecord::Schema.define :version => 0 do
     t.column :created_at,   :datetime
     t.column :updated_at,   :datetime
     t.column :lft,          :integer
-    t.column :rgt,          :integer    
+    t.column :rgt,          :integer
     t.column :root_id,      :integer
     t.column :type,         :string
   end

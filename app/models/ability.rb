@@ -1,9 +1,9 @@
 class Ability
   include CanCan::Ability
-  
+
   def initialize(user)
     user ||= User.new # guest user
-    
+
     if user.role?(:admin)
       can :manage, :all
     elsif user.role?(:registered)
@@ -18,12 +18,12 @@ class Ability
       can :destroy, Post do |post|
         post && post.user_can(user, :destroy)
       end
-      
+
       can :read, User
       can :update, User do |viewed_user|
         viewed_user == user
       end
-      
+
       if user.role?(:moderator)
         can :read, :all
       end

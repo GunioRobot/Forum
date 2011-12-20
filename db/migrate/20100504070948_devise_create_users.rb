@@ -7,13 +7,13 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.rememberable
       t.trackable
       # t.lockable
-      
+
       t.string :nick, :null => false
       t.integer :role_id, :null => false
-      
+
       t.timestamps
     end
-    
+
     add_index :users, :nick,                 :unique => true
     add_index :users, :email,                :unique => true
     add_index :users, :confirmation_token,   :unique => true
